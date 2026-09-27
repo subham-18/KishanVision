@@ -1,0 +1,9 @@
+{
+  "name": "KisanVision AI",
+  "description": "Multimodal AI farm copilot for small and marginal farmers in India providing crop health assessment and localized regenerative farming guidance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
+
