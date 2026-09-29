@@ -292,7 +292,8 @@ CRITICAL SAFETY & AGRONOMIC GUIDELINES:
 4. Clearly distinguish visual symptoms, possible causes (list top 2-3 with percentages summing near 100%), and environmental factors.
 5. Provide actionable 7-day timeline (Today, +2 Days, +4 Days, +7 Days).
 6. Provide clear escalation advice on when to consult local Krishi Vigyan Kendra (KVK), State Agriculture Department, or ICAR institutes.
-7. Provide a farmer-friendly summary in ${targetLang} (using native script e.g., Odia script if Odia, Devanagari if Hindi/Marathi, Telugu script if Telugu, Tamil script if Tamil, Bengali script if Bengali) AND in English.
+7. Write every farmer-facing field in ${targetLang}, using its native script. This includes observations, conditions, concern, confidence, environmental considerations, actions, regenerative practices, the seven-day plan, escalation advice, and the native summary. Do not mix English into those fields. Keep only farmer_summary_english in English as the optional reference translation.
+8. Provide a farmer-friendly summary in ${targetLang} (using native script e.g., Odia script if Odia, Devanagari if Hindi/Marathi, Telugu script if Telugu, Tamil script if Tamil, Bengali script if Bengali) AND in English.
 
 Return a STRICT JSON response matching this schema:
 {

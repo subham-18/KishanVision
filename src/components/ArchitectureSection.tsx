@@ -67,6 +67,19 @@ export const ArchitectureSection: React.FC<ArchitectureSectionProps> = ({ t }) =
           <Cpu className="w-3.5 h-3.5 text-[#2D6A4F]" />
           <span>{t.architecture.badge}</span>
         </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {[
+            ['Generative AI', 'Gemini API · Google AI Studio · Vertex AI'],
+            ['Predictive modelling', 'Vertex AI AutoML · custom training · model serving'],
+            ['Prototype boundary', 'Demo data is labelled separately from live AI analysis'],
+          ].map(([title, detail]) => (
+            <div key={title} className="rounded-xl border border-[#D9D9D9] bg-white p-4">
+              <div className="text-[10px] font-black uppercase tracking-[0.12em] text-[#777777]">{title}</div>
+              <div className="mt-1 text-sm font-bold text-[#111111]">{detail}</div>
+            </div>
+          ))}
+        </div>
         <h2 className="text-2xl sm:text-3xl font-extrabold text-[#143021]">
           {t.architecture.title}
         </h2>

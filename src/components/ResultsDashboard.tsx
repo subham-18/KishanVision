@@ -155,30 +155,30 @@ export const ResultsDashboard: React.FC<ResultsDashboardProps> = ({
   const isRegional = language !== 'English';
 
   return (
-    <section className="space-y-6 sm:space-y-8 animate-in fade-in duration-300">
+    <section className="results-clean space-y-6 sm:space-y-8 animate-in fade-in duration-300">
       {/* 🌟 Dynamic Responsive Assessment Header Banner (Theme adapts to diagnosed risk) */}
-      <div className={`rounded-2xl p-4 sm:p-6 bg-gradient-to-r ${riskTheme.bannerGradient} text-white shadow-lg space-y-3.5 border-2 border-white/20 transition-all duration-700`}>
+      <div className="rounded-2xl p-4 sm:p-6 bg-white text-[#111111] shadow-sm space-y-3.5 border border-[#D9D9D9] transition-all duration-700">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="space-y-1.5">
             <div className="flex items-center gap-2 flex-wrap text-xs">
-              <span className="px-2.5 py-1 rounded-full bg-white text-[#143021] font-black uppercase tracking-wider text-[10px] shadow-2xs">
+              <span className="px-2.5 py-1 rounded-full bg-[#111111] text-white font-black uppercase tracking-wider text-[10px] shadow-2xs">
                 Active Assessment
               </span>
-              <span className="text-white/60">·</span>
-              <span className="font-extrabold text-white text-sm">{crop}</span>
-              <span className="text-white/60">·</span>
-              <span className="text-white/90 font-medium">{district}, {state}</span>
-              <span className="text-white/60">·</span>
-              <span className="text-[#FDE047] font-bold bg-black/20 px-2 py-0.5 rounded">{language}</span>
+              <span className="text-[#A0A0A0]">·</span>
+              <span className="font-extrabold text-[#111111] text-sm">{crop}</span>
+              <span className="text-[#A0A0A0]">·</span>
+              <span className="text-[#555555] font-medium">{district}, {state}</span>
+              <span className="text-[#A0A0A0]">·</span>
+              <span className="text-[#111111] font-bold bg-[#F1F1F1] px-2 py-0.5 rounded">{language}</span>
             </div>
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight text-white drop-shadow-xs">
-              {t.results.title}
+              {t.results.title} <span className="text-[#666666] font-medium">· {language}</span>
             </h1>
           </div>
 
           <button
             onClick={onNewAnalysis}
-            className="self-start sm:self-auto px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/30 text-xs font-bold text-white flex items-center gap-2 transition-all min-h-[44px] shadow-2xs active:scale-95"
+            className="self-start sm:self-auto px-4 py-2.5 rounded-xl bg-[#111111] hover:bg-[#333333] border border-[#111111] text-xs font-bold text-white flex items-center gap-2 transition-all min-h-[44px] shadow-2xs active:scale-95"
           >
             <RefreshCw className="w-3.5 h-3.5" />
             <span>{t.results.newScanBtn}</span>
@@ -187,14 +187,14 @@ export const ResultsDashboard: React.FC<ResultsDashboardProps> = ({
 
         {/* Dynamic Risk Bar & Primary Concern Callout */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-1">
-          <div className="p-3 bg-black/25 backdrop-blur-md rounded-xl border border-white/20 flex items-start gap-2.5 text-xs flex-1">
-            <Sparkles className="w-4 h-4 text-[#FDE047] shrink-0 mt-0.5" />
+          <div className="p-3 bg-[#F7F7F7] rounded-xl border border-[#E2E2E2] flex items-start gap-2.5 text-xs flex-1">
+            <Sparkles className="w-4 h-4 text-[#111111] shrink-0 mt-0.5" />
             <div>
-              <span className="font-extrabold text-[#FDE047]">{t.results.keyFocus}: </span>
-              <span className="font-semibold text-white">{result.primary_concern}</span>
+              <span className="font-extrabold text-[#111111]">{t.results.keyFocus}: </span>
+              <span className="font-semibold text-[#333333]">{result.primary_concern}</span>
             </div>
           </div>
-          <div className="px-3.5 py-2 rounded-xl bg-white/20 backdrop-blur-md border border-white/25 text-xs font-bold text-white shrink-0 flex items-center gap-2">
+          <div className="px-3.5 py-2 rounded-xl bg-[#F7F7F7] border border-[#E2E2E2] text-xs font-bold text-[#333333] shrink-0 flex items-center gap-2">
             <span className={`w-2.5 h-2.5 rounded-full ${riskTheme.dot} animate-ping shrink-0`}></span>
             <span>{riskTheme.statusNotice}</span>
           </div>
@@ -231,7 +231,7 @@ export const ResultsDashboard: React.FC<ResultsDashboardProps> = ({
               ) : (
                 <>
                   <Volume2 className="w-4 h-4 text-[#FDE047]" />
-                  <span>🔊 {language === 'English' ? t.results.listenBtn : `${t.results.listenBtn} (${language})`}</span>
+                  <span>{language === 'English' ? t.results.listenBtn : `${t.results.listenBtn} (${language})`}</span>
                 </>
               )}
             </button>
@@ -244,7 +244,7 @@ export const ResultsDashboard: React.FC<ResultsDashboardProps> = ({
         </div>
 
         {/* Block 2: English Translation & Reference (Shown when regional language is selected) */}
-        {isRegional && result.farmer_summary_english && (
+        {false && isRegional && result.farmer_summary_english && (
           <div className="rounded-2xl p-4 sm:p-5 bg-[#F8FAFC] border-2 border-[#CBD5E1] space-y-3 shadow-2xs">
             <div className="flex items-center justify-between flex-wrap gap-2">
               <div className="flex items-center gap-2">
@@ -254,28 +254,6 @@ export const ResultsDashboard: React.FC<ResultsDashboardProps> = ({
                 </span>
               </div>
 
-              {/* English Audio Button */}
-              <button
-                onClick={handleToggleEnglishAudio}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all min-h-[36px] ${
-                  activeAudioMode === 'english'
-                    ? 'bg-red-600 text-white animate-pulse'
-                    : 'bg-white hover:bg-slate-100 text-[#334155] border border-slate-300'
-                }`}
-                title="Read aloud in English"
-              >
-                {activeAudioMode === 'english' ? (
-                  <>
-                    <VolumeX className="w-3.5 h-3.5 text-white" />
-                    <span>Stop English</span>
-                  </>
-                ) : (
-                  <>
-                    <Volume2 className="w-3.5 h-3.5 text-[#2563EB]" />
-                    <span>🔊 Listen in English</span>
-                  </>
-                )}
-              </button>
             </div>
 
             <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-[#E2E8F0] text-[#334155] text-xs sm:text-sm leading-relaxed font-medium">
